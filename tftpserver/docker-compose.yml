@@ -1,0 +1,14 @@
+---
+version: "2"
+
+services:
+  tftpd:
+    image: wastrachan/tftpd
+    container_name: tftpd
+    environment:
+      - PUID:1000
+      - PGID:1000
+    volumes:
+      - /home/rsletten/data/tftpboot:/data
+    ports:
+      - 69:69/udp

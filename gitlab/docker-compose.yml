@@ -1,0 +1,21 @@
+version: "2"
+
+networks:
+  gitlab:
+    external: false
+
+services:
+  web:
+    image: gitlab/gitlab-ce:latest
+    hostname: 'gitlab.rsletten.com'
+    networks:
+      gitlab:
+    volumes:
+      - '/home/rsletten/data/gitlab/config:/etc/gitlab'
+      - '/home/rsletten/data/gitlab/log:/var/log/gitlab'
+      - '/home/rsletten/data/gitlab/data:/var/opt/gitlab'
+    ports:
+      - "192.168.1.225:80:80"
+      - "192.168.1.225:443:443"
+      - "192.168.1.225:22:22"
+
