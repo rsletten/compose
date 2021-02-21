@@ -10,5 +10,6 @@ services:
       - PGID:1000
     volumes:
       - /home/rsletten/data/tftpboot:/data
+      - /dev/log:/dev/log
     ports:
-      - 69:69/udp
+      - 192.168.1.226:69:69/udp
