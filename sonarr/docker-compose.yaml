@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/rsletten/data/sonarr:/config
+      - /mnt/8t/TV:/tv1
+      - /mnt/3t/TV:/tv2
+    ports:
+      - 192.168.1.222:8989:8989
+    restart: unless-stopped
